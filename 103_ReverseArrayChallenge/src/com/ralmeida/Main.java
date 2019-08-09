@@ -22,21 +22,19 @@ public class Main {
     public static void main(String[] args) {
         int[] array = {1,2,3,4,5};
 
-        System.out.println(Arrays.toString(array));
-
+        System.out.println("Original Array: " + Arrays.toString(array));
         reverse(array);
+        System.out.println("Reversed Array: " + Arrays.toString(array));
     }
 
     private static void reverse(int[] array) {
+        int maxIndex = array.length - 1;
+        int halfLength = array.length / 2;
 
-        System.out.printf("[");
-        for (int i = array.length-1; i >= 0; i--){
-            System.out.printf(array[i] + "");
-            if (i > 0){
-                System.out.printf(", ");
-            } else {
-                System.out.println("]");
-            }
+        for (int i=0; i < halfLength; i++){
+            int temp = array[i];
+            array[i] = array[maxIndex - i];
+            array[maxIndex - 1] = temp;
         }
     }
 }
