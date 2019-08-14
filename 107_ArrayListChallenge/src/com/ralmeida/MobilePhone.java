@@ -68,12 +68,15 @@ public class MobilePhone {
             String newName = scanner.nextLine();
             System.out.println("Enter Phone Number: ");
             String phoneNumber = scanner.nextLine();
-            Contact newContact = new Contact(newName, phoneNumber);
-            contactsList.modifyContact(contact, newContact);
-            System.out.println("Contact " + name + " has been modified!");
+            if (contactsList.searchContactByName(name) == null) {
+                Contact newContact = new Contact(newName, phoneNumber);
+                contactsList.modifyContact(contact, newContact);
+                System.out.println("Contact has been modified!");
+            } else {
+                System.out.println("Contact " + newName + " already exists!");
+            }
         }
     }
-
 
     public static void removeContact(){
         System.out.println("Enter name to remove: ");
