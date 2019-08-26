@@ -9,7 +9,7 @@ public class Customer {
 
     public Customer(String name, double initialAmount) {
         this.name = name;
-        transactionsList.add(initialAmount);
+        this.addTransaction(initialAmount);
     }
 
     public String getName() {
@@ -18,5 +18,9 @@ public class Customer {
 
     public void addTransaction(Double amount){
         transactionsList.add(amount);
+    }
+
+    public ArrayList<Double> getTransactionsList() {
+        return transactionsList;
     }
 }

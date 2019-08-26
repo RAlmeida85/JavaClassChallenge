@@ -58,7 +58,7 @@ public class Bank {
             }
         }
 
-        System.out.println("Erro to add transaction");
+        System.out.println("Error to add transaction");
     }
 
     public void printListofCustomerByBranch(String branchName){
