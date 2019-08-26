@@ -3,14 +3,20 @@ package com.ralmeida;
 public class Album {
 
     private Song[] songList;
+    private String name;
 
-    public Album(Song song) {
+    public Album(String name, Song song) {
+        this.name = name;
         this.songList = new Song[1];
         songList[0] = song;
     }
 
     public Song[] getSongList() {
         return songList;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getSongNumber(String songName){
@@ -25,13 +31,13 @@ public class Album {
 
     public void addSong(Song song){
 
-        Song[] newSongList = new Song[this.songList.length];
+        Song[] newSongList = new Song[this.songList.length+1];
 
         for(int i=0; i<songList.length; i++){
             newSongList[i] = songList[i];
         }
 
-        newSongList[newSongList.length] = song;
+        newSongList[newSongList.length-1] = song;
         this.songList = newSongList;
     }
 }
