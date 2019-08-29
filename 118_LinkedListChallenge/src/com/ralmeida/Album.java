@@ -1,43 +1,26 @@
 package com.ralmeida;
 
+import java.util.ArrayList;
+
 public class Album {
 
-    private Song[] songList;
     private String name;
+    private ArrayList<Song> songs;
 
-    public Album(String name, Song song) {
+    public Album(String name) {
         this.name = name;
-        this.songList = new Song[1];
-        songList[0] = song;
-    }
-
-    public Song[] getSongList() {
-        return songList;
+        this.songs = new ArrayList<>();
     }
 
     public String getName() {
         return name;
     }
 
-    public int getSongNumber(String songName){
-        // return song index in this album, if not found, will return -1
-        for (int i=0; i < this.songList.length; i++){
-            if (songList[i].getName().equals(songName)){
-                return i;
-            }
-        }
-        return -1;
+    public ArrayList<Song> getSongs() {
+        return songs;
     }
 
-    public void addSong(Song song){
-
-        Song[] newSongList = new Song[this.songList.length+1];
-
-        for(int i=0; i<songList.length; i++){
-            newSongList[i] = songList[i];
-        }
-
-        newSongList[newSongList.length-1] = song;
-        this.songList = newSongList;
+    public void addSong(String name, int duration){
+        this.songs.add(new Song(name, duration));
     }
 }
